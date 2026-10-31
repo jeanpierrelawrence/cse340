@@ -1,0 +1,77 @@
+/* Buttons: Uppercase, 16px, 25% letter-spacing, normal line height, bold */
+button, 
+.btn {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: var(--text-body); /* 16px */
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wide); /* 25% letter spacing */
+  line-height: var(--leading-normal);
+  text-transform: uppercase;
+  color: var(--color-text-main);
+  background-color: var(--color-primary);
+  padding: 0.85rem 1.75rem;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover, 
+.btn:hover {
+  background-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+/* Card Grid Layout */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 2.5rem;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card h2 {
+  font-size: var(--text-subtitle); /* 42px */
+  font-weight: var(--weight-regular);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-compact);
+  margin-bottom: 0.75rem;
+}
+
+.card p {
+  font-size: var(--text-body); /* 16px */
+  font-weight: var(--weight-regular);
+  letter-spacing: var(--tracking-normal);
+  line-height: var(--leading-normal);
+  margin-bottom: 0;
+}
+
+/* Media & Lead Text Utilities */
+.main-logo {
+  max-width: 100%;
+  max-height: 480px;
+  object-fit: contain;
+  margin-top: 2.5rem;
+  border-radius: var(--radius-md);
+}
+
+.intro-text {
+  font-size: var(--text-subtitle); /* 42px */
+  font-weight: var(--weight-regular);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-compact);
+  margin-bottom: 2rem;
+  max-width: 40ch;
+}

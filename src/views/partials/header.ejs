@@ -5,12 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/organizations">Organizations</a></li>
-            <li><a href="/projects">Projects</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav class="navbar">
+            <div class="nav-brand">CSE 340 Service Network</div>
+
+            <!-- Mobile Hamburger Toggle -->
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                <span class="bar bar-top"></span>
+                <span class="bar bar-bottom"></span>
+            </button>
+
+            <!-- Desktop Nav / Mobile Full-Screen Overlay -->
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/organizations">Organizations</a></li>
+                    <li><a href="/projects">Projects</a></li>
+                    <li><a href="/categories">Categories</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <script src="/js/nav.js"></script>
