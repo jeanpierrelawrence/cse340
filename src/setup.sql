@@ -65,15 +65,6 @@ CREATE TABLE category (
 );
 
 -- ========================================
--- Junction Table: Project <-> Category (Many-to-Many)
--- ========================================
-CREATE TABLE project_category (
-    project_id INT NOT NULL REFERENCES project(project_id) ON DELETE CASCADE,
-    category_id INT NOT NULL REFERENCES category(category_id) ON DELETE CASCADE,
-    PRIMARY KEY (project_id, category_id)
-);
-
--- ========================================
 -- Insert Sample Categories
 -- ========================================
 INSERT INTO category (name)
@@ -82,6 +73,15 @@ VALUES
 ('Educational'),
 ('Community Service'),
 ('Health and Wellness');
+
+-- ========================================
+-- Junction Table: Project <-> Category (Many-to-Many)
+-- ========================================
+CREATE TABLE project_category (
+    project_id INT NOT NULL REFERENCES project(project_id) ON DELETE CASCADE,
+    category_id INT NOT NULL REFERENCES category(category_id) ON DELETE CASCADE,
+    PRIMARY KEY (project_id, category_id)
+);
 
 -- ========================================
 -- Associate Projects with Categories
