@@ -9,7 +9,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000" rel="stylesheet">
 </head>
-<body>
+<body data-theme="<%= typeof theme !== 'undefined' ? theme : 'primary' %>">
+    <div class="theme-backdrop" aria-hidden="true"></div>
+    <script>
+        (function () {
+            const currentTheme = document.body.dataset.theme || 'primary';
+            const prevTheme = sessionStorage.getItem('siteTheme');
+
+            if (prevTheme && prevTheme !== currentTheme) {
+                const prevColor = prevTheme === 'detail' ? 'var(--bg-lavender)' : 'var(--bg-creme)';
+                document.body.style.setProperty('--prev-bg', prevColor);
+                document.body.classList.add('theme-animate');
+            }
+
+            sessionStorage.setItem('siteTheme', currentTheme);
+        })();
+    </script>
+
     <header>
         <nav class="navbar">
             <div class="nav-brand">CSE 340 Service Network</div>

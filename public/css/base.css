@@ -8,21 +8,50 @@ body {
   font-family: var(--font-sans);
   background-color: var(--color-bg);
   color: var(--color-text-main);
-  font-size: var(--text-body); /* 16px */
+  font-size: var(--text-body);
   font-weight: var(--weight-regular);
   line-height: var(--leading-normal);
   letter-spacing: var(--tracking-normal);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  position: relative;
+  isolation: isolate;
+}
+
+/* Dedicated background layer that sits above body's background and behind all content */
+.theme-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-bg);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Only animates when JS detects an actual theme change */
+body.theme-animate {
+  background-color: var(--prev-bg, var(--color-bg));
+}
+
+body.theme-animate .theme-backdrop {
+  animation: circle-reveal 0.85s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+@keyframes circle-reveal {
+  from {
+    clip-path: circle(0% at 50% 50%);
+  }
+  to {
+    clip-path: circle(150% at 50% 50%);
+  }
 }
 
 /* Titles: DM Sans Bold, -5% letter-spacing, compact line-height */
 h1, .title {
   font-family: var(--font-sans);
-  font-size: var(--text-title); /* 84px */
+  font-size: var(--text-title);
   font-weight: var(--weight-bold);
-  letter-spacing: var(--tracking-tight); /* -5% */
+  letter-spacing: var(--tracking-tight);
   line-height: var(--leading-compact);
   color: var(--color-text-main);
   margin-bottom: 1.5rem;
@@ -31,9 +60,9 @@ h1, .title {
 /* Sub-titles: DM Sans Regular, -5% letter-spacing, half size of title, compact line-height */
 h2, .subtitle {
   font-family: var(--font-sans);
-  font-size: var(--text-subtitle); /* 42px (Half of 84px) */
+  font-size: var(--text-subtitle);
   font-weight: var(--weight-regular);
-  letter-spacing: var(--tracking-tight); /* -5% */
+  letter-spacing: var(--tracking-tight);
   line-height: var(--leading-compact);
   color: var(--color-text-main);
   margin-bottom: 1.25rem;
@@ -50,7 +79,7 @@ h3, h4 {
 
 /* Body: DM Sans Regular, 16px, normal letter spacing, normal line height */
 p {
-  font-size: var(--text-body); /* 16px */
+  font-size: var(--text-body);
   font-weight: var(--weight-regular);
   letter-spacing: var(--tracking-normal);
   line-height: var(--leading-normal);
@@ -68,4 +97,20 @@ a {
 a:hover, 
 a:focus {
   color: var(--color-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.theme-animate .theme-backdrop {
+    animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  h1, .title {
+    font-size: 3rem;
+  }
+
+  h2, .subtitle {
+    font-size: 1.875rem;
+  }
 }

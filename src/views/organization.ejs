@@ -1,22 +1,27 @@
 <%- include('partials/header') %>
 
 <main class="container">
-    <h1><%= title %></h1>
+    <h1><%= organizationDetails.name %></h1>
 
-    <div class="card">
+    <div class="detail-card">
         <div class="card-media">
             <img src="/images/<%= organizationDetails.logo_filename %>" alt="<%= organizationDetails.name %> logo">
         </div>
-        <h2><%= organizationDetails.name %></h2>
         <p class="org-description"><%= organizationDetails.description %></p>
-        <p><strong>Contact:</strong> <%= organizationDetails.contact_email %></p>
+
+        <div class="detail-meta">
+            <div class="detail-meta-item">
+                <span class="detail-label">Contact</span>
+                <span><%= organizationDetails.contact_email %></span>
+            </div>
+        </div>
     </div>
 
-    <h3>Service Projects</h3>
+    <h2 class="section-heading">Service Projects</h2>
     <div class="card-grid">
         <% projects.forEach(project => { %>
             <div class="card">
-                <h4><a href="/project/<%= project.project_id %>"><%= project.title %></a></h4>
+                <h3><a href="/project/<%= project.project_id %>"><%= project.title %></a></h3>
                 <p>
                     <strong>Date:</strong> 
                     <%= new Date(project.project_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %>

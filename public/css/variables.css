@@ -1,37 +1,40 @@
 :root {
-  /* Core Palette */
   --bg-creme: #FDFBD4;
   --bg-lavender: #C1BFFF;
+  --bg-alabaster: #F8F7FF;
   --accent-olive: #BCB96A;
   --accent-purple: #D06DFC;
+  --ink-dark: #1C1C1C;
 
-  /* Semantic Mapping */
   --color-bg: var(--bg-creme);
   --color-surface: var(--bg-lavender);
-  --color-text-main: #1C1C1C;
+  --color-text-main: var(--ink-dark);
   --color-primary: var(--accent-olive);
   --color-accent: var(--accent-purple);
 
-  /* Single Typography Stack */
   --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  /* Typography Scale */
-  --text-title: 5.25rem;     /* 84px Primary Title */
-  --text-subtitle: 2.625rem; /* 42px Subtitle (Exact half of 84px) */
-  --text-body: 1rem;         /* 16px Body & Buttons */
+  --text-title: 5.25rem;
+  --text-subtitle: 2.625rem;
+  --text-body: 1rem;
 
-  /* Letter Spacing Tokens */
-  --tracking-tight: -0.03em; /* -5% letter-spacing */
-  --tracking-normal: 0em;    /* Normal letter-spacing */
-  --tracking-wide: 0.25em;   /* 25% letter-spacing */
+  --tracking-tight: -0.03em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.25em;
 
-  /* Line Heights */
   --leading-compact: 1.05;
   --leading-normal: 1.6;
 
-  /* Font Weights */
   --weight-regular: 400;
   --weight-bold: 700;
 
   --radius-md: 1rem;
+}
+
+body[data-theme="detail"] {
+  --color-bg: var(--bg-lavender);
+  --color-surface: var(--bg-alabaster);
+  --color-text-main: var(--ink-dark);
+  --color-primary: var(--accent-purple);
+  --color-accent: var(--accent-purple);
 }

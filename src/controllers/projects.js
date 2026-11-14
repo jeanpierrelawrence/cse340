@@ -6,7 +6,7 @@ const NUMBER_OF_UPCOMING_PROJECTS = 5;
 const showProjectsPage = async (req, res) => {
     const projects = await getUpcomingProjects(NUMBER_OF_UPCOMING_PROJECTS);
     const title = 'Upcoming Service Projects';
-    
+
     res.render('projects', { title, projects });
 };
 
@@ -23,7 +23,7 @@ const showProjectDetailsPage = async (req, res, next) => {
     const categories = await getCategoriesByProjectId(projectId);
     const title = projectDetails.title;
 
-    res.render('project', { title, projectDetails, categories });
+    res.render('project', { title, projectDetails, categories, theme: 'detail' });
 };
 
 export { showProjectsPage, showProjectDetailsPage };

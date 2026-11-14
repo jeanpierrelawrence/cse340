@@ -3,21 +3,26 @@
 <main class="container">
     <h1><%= projectDetails.title %></h1>
 
-    <div class="card">
-        <p>
-            <strong>Date:</strong> 
-            <%= new Date(projectDetails.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %>
-        </p>
-        <p><strong>Location:</strong> <%= projectDetails.location %></p>
-        <p>
-            <strong>Organization:</strong> 
-            <a href="/organization/<%= projectDetails.organization_id %>"><%= projectDetails.organization_name %></a>
-        </p>
+    <div class="detail-card">
         <p class="org-description"><%= projectDetails.description %></p>
+
+        <div class="detail-meta">
+            <div class="detail-meta-item">
+                <span class="detail-label">Date</span>
+                <span><%= new Date(projectDetails.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></span>
+            </div>
+            <div class="detail-meta-item">
+                <span class="detail-label">Location</span>
+                <span><%= projectDetails.location %></span>
+            </div>
+            <div class="detail-meta-item">
+                <span class="detail-label">Organization</span>
+                <a href="/organization/<%= projectDetails.organization_id %>"><strong><%= projectDetails.organization_name %></strong></a>
+            </div>
+        </div>
 
         <% if (categories && categories.length > 0) { %>
             <div class="category-tags">
-                <strong>Categories:</strong>
                 <% categories.forEach(category => { %>
                     <a href="/category/<%= category.category_id %>" class="category-tag"><%= category.name %></a>
                 <% }); %>

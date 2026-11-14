@@ -1,11 +1,10 @@
-/* Buttons: Uppercase, 16px, 25% letter-spacing, normal line height, bold */
 button, 
 .btn {
   display: inline-block;
   font-family: var(--font-sans);
-  font-size: var(--text-body); /* 16px */
+  font-size: var(--text-body);
   font-weight: var(--weight-bold);
-  letter-spacing: var(--tracking-wide); /* 25% letter spacing */
+  letter-spacing: var(--tracking-wide);
   line-height: var(--leading-normal);
   text-transform: uppercase;
   color: var(--color-text-main);
@@ -23,7 +22,6 @@ button:hover,
   transform: translateY(-2px);
 }
 
-/* Card Grid Layout */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -35,6 +33,9 @@ button:hover,
   background-color: var(--color-surface);
   border-radius: var(--radius-md);
   padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
   transition: transform 0.2s ease;
 }
 
@@ -43,22 +44,67 @@ button:hover,
 }
 
 .card h2 {
-  font-size: var(--text-subtitle); /* 42px */
+  font-size: var(--text-subtitle);
   font-weight: var(--weight-regular);
   letter-spacing: var(--tracking-tight);
   line-height: var(--leading-compact);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.25rem;
 }
 
 .card p {
-  font-size: var(--text-body); /* 16px */
+  font-size: var(--text-body);
   font-weight: var(--weight-regular);
   letter-spacing: var(--tracking-normal);
   line-height: var(--leading-normal);
   margin-bottom: 0;
 }
 
-/* Media & Lead Text Utilities */
+.detail-card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.detail-card a:hover,
+.detail-card a:focus,
+.card a:hover,
+.card a:focus {
+  opacity: 0.75;
+  color: var(--color-text-main);
+}
+
+.detail-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.detail-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.detail-label {
+  font-size: 0.75rem;
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.section-heading {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
 .main-logo {
   max-width: 100%;
   max-height: 480px;
@@ -68,7 +114,7 @@ button:hover,
 }
 
 .intro-text {
-  font-size: var(--text-subtitle); /* 42px */
+  font-size: var(--text-subtitle);
   font-weight: var(--weight-regular);
   letter-spacing: var(--tracking-tight);
   line-height: var(--leading-compact);
@@ -76,14 +122,13 @@ button:hover,
   max-width: 40ch;
 }
 
-/* Card Media Wrapper */
 .card-media {
   width: 100%;
   height: 64px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.5rem;
 }
 
 .card-media img {
@@ -95,14 +140,14 @@ button:hover,
   transition: opacity 0.2s ease, filter 0.2s ease;
 }
 
-.card:hover .card-media img {
+.card:hover .card-media img,
+.detail-card .card-media img {
   filter: none;
   opacity: 1;
 }
 
-/* Organization Description Text */
 .card .org-description {
-  margin-bottom: 1rem;
+  margin-bottom: 0.25rem;
   line-height: var(--leading-normal);
 }
 
@@ -111,7 +156,7 @@ button:hover,
   flex-wrap: wrap;
   align-items: center;
   gap: 0.75rem;
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
 }
 
 .category-tag {
@@ -127,11 +172,12 @@ button:hover,
   padding: 0.45rem 1rem;
   border-radius: var(--radius-md);
   transition: background-color 0.2s ease, transform 0.2s ease;
+  border: 2px solid var(--accent-purple);
 }
 
 .category-tag:hover,
 .category-tag:focus {
-  color: var(--color-text-main);
-  background-color: var(--color-accent);
+  color: #1C1C1C;
+  background-color: var(--text-white);
   transform: translateY(-2px);
 }
