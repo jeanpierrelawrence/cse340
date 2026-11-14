@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+
+<main class="container">
+    <h1>Something Went Wrong</h1>
+    <p class="intro-text">We are experiencing technical difficulties.</p>
+    <p>Our team has been notified and is working to fix the issue. Return to the <a href="/">homepage</a> to continue browsing.</p>
+    
+    <% if (NODE_ENV === 'development') { %>
+        <details open style="margin-top: 2rem;">
+            <summary><strong>Error Details (Development Only)</strong></summary>
+            <pre style="margin-top: 1rem; overflow-x: auto;"><%= error %></pre>
+            <pre style="margin-top: 0.5rem; overflow-x: auto;"><%= stack %></pre>
+        </details>
+    <% } %>
+</main>
+
+<%- include('../partials/footer') %>
