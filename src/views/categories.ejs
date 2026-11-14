@@ -2,12 +2,14 @@
 
 <main class="container">
     <h1><%= title %></h1>
-    <p class="intro-text">Explore our core service project categories:</p>
+    <p class="intro-text">Explore our service categories:</p>
 
     <div class="card-grid">
         <% categories.forEach(category => { %>
             <div class="card">
-                <h2><%= category.name %></h2>
+                <h2>
+                    <a href="/category/<%= category.category_id %>"><%= category.name %></a>
+                </h2>
             </div>
         <% }); %>
     </div>
